@@ -1,22 +1,7 @@
 class Modulo_7:
 
     def __init__(self, listado):
-        if type(listado) != list:
-            self.listado = []
-            raise ValueError ("El tipo de datos esperado es una lista de números enteros")
-        else:
-            self.listado = listado
-        
-        for i in listado:
-            if type(i) != int:
-                self.listado = []
-                raise ValueError ("Uno de los elementos de la lista no es de tipo entero")
-            else:
-                self.listado = listado
-
-    
-    def ver_listado (self):
-        return self.listado
+        self.listado = listado
         
     #BLOQUE DE CÓDIGO PARA REVISAR SI CADA ELEMENTO DE LA LISTA ES NÚMERO PRIMO
     #Método para Verificar Números Primos 
@@ -39,15 +24,12 @@ class Modulo_7:
     
     # Método para llamar al método privado __numero_primo
     def numero_primo (self):
-        lista_booleana = []
-
         for i in self.listado:
             if self.__numero_primo(i):
-                lista_booleana.append(True)                
+                print (i, "es número primo")
             else:
-                lista_booleana.append(False)
-        return lista_booleana
-                
+                print (i, "no es número primo")
+
 
     #BLOQUE DE CÓDIGO PARA OBTENER EL VALOR MODAL
     #Método para valor modal
@@ -68,8 +50,7 @@ class Modulo_7:
     #Método para llamar el método privado de valor modal
     def valor_modal(self):
         moda, cant_repeticiones = self.__Valor_Modal(self.listado)
-        #print ("El valor modal es", moda, "con", cant_repeticiones, "repeticiones")
-        return (moda, cant_repeticiones)
+        print ("El valor modal es", moda, "con", cant_repeticiones, "repeticiones")
     
 
     #BLOQUE DE CÓDIGO PARA HACER CONVERSIONES DE MEDIDAS DE TEMPERATURA
@@ -104,17 +85,8 @@ class Modulo_7:
     
     # Método para llamar al método privado __conversion_temperatura
     def conversion_temperatura (self, medida_origen, medida_destino):
-
-        parametros_funcion = ["C", "F", "K"]
-        lista_conversion   = []
-
-        if str(medida_origen) not in parametros_funcion or str (medida_destino) not in parametros_funcion:
-            raise ValueError ("Los parámetros esperados son:", parametros_funcion)
-        
-        for k in self.listado: 
-            lista_conversion.append(self.__conversion_temperatura(k, medida_origen, medida_destino))
-        return lista_conversion 
-             
+        for k in self.listado:
+            print (k, "°", medida_origen, "es igual a", self.__conversion_temperatura(k, medida_origen, medida_destino), "°", medida_destino)
     
 
     #BLOQUE DE CÓDIGO PARA CALCULAR EL FACTORIAL DE CADA ELEMENTO DE LA LISTA
@@ -138,12 +110,7 @@ class Modulo_7:
     
     # Método para llamar al método privado __factorial
     def factorial (self):
-        list_factoriales = []
-
         for j in self.listado:
             factorial_j = self.__factorial(j)
-            list_factoriales.append(factorial_j)
-        
-        return list_factoriales
-
+            print ("El factorial de", j, "es", factorial_j)
     
